@@ -12,12 +12,10 @@ describe 'merchant API' do
 
     expect(merchants[:data].count).to eq(3)
 
-    merchants.each do |merchant|
-      expect(merchants[:data][0][:attributes]).to have_key(:id)
-      expect(merchants[:data][0][:attributes][:id]).to be_an(Integer)
+    expect(merchants[:data][0][:attributes]).to have_key(:id)
+    expect(merchants[:data][0][:attributes][:id]).to be_an(Integer)
 
-      expect(merchants[:data][0][:attributes]).to have_key(:name)
-      expect(merchants[:data][0][:attributes][:name]).to be_a(String)
-    end
+    expect(merchants[:data][0][:attributes]).to have_key(:name)
+    expect(merchants[:data][0][:attributes][:name]).to be_a(String)
   end
 end
