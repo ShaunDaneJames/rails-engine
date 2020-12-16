@@ -33,13 +33,12 @@ describe 'merchant API' do
     expect(merchant[:data][:attributes][:name]).to eq(merch_1.name)
   end
 
-  xit 'can update a merchant record' do
+  it 'can update a merchant record' do
     merch_1 = create(:merchant)
 
     new_name = "Jim's"
     put api_v1_merchant_path(merch_1.id), params: {name: new_name}
 
-    #Despite reloading and passing spec harness, this test still fails
     merch_1.reload
     merchant = JSON.parse(response.body, symbolize_names: true)
 
