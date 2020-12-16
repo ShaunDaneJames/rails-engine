@@ -7,4 +7,14 @@ class Api::V1::ItemsController < ApplicationController
   def show
     render json: ItemSerializer.new(Item.find(params[:id]))
   end
+
+  def update
+    item = Item.find(params[:id])
+    item.update({
+      name: params[:name],
+      description: params[:description],
+      unit_price: params[:unit_price]})
+    item.save
+    render json: ItemSerializer.new(item)
+  end
 end
