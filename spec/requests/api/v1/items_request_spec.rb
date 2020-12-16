@@ -26,6 +26,6 @@ describe 'Item API' do
     expect(items[:data][0][:attributes][:unit_price]).to be_a(Float)
 
     expect(items[:data][0][:attributes]).to have_key(:merchant_id)
-    expect(items[:data][0][:attributes][:merchant_id]).to be_a(Hash)
+    expect(items[:data][0][:attributes][:merchant_id]).to be_a(Integer)
   end
 end
