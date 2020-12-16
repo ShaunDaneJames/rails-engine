@@ -48,4 +48,18 @@ describe 'merchant API' do
     expect(merchant[:data][:attributes]).to have_key(:name)
     expect(merchant[:data][:attributes][:name]).to eq(new_name)
   end
+
+  it 'can create a record' do
+    post api_v1_merchants_path, params: {name: 'Link'}
+
+    
+  end
+
+  it 'can delete a record' do
+    merch_1 = create(:merchant)
+
+    delete api_v1_merchant_path(merch_1.id)
+
+
+  end
 end
