@@ -9,9 +9,9 @@ class Api::V1::MerchantsController < ApplicationController
   end
 
   def update
-    render json: MerchantSerializer.new(Merchant.find(params[:id]))
     merchant = Merchant.find(params[:id])
     merchant.update({name: params[:name]})
     merchant.save
+    render json: MerchantSerializer.new(merchant)
   end
 end
