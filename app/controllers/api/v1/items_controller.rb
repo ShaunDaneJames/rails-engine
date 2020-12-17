@@ -14,7 +14,6 @@ class Api::V1::ItemsController < ApplicationController
       name: params[:name],
       description: params[:description],
       unit_price: params[:unit_price]})
-    item.save
     render json: ItemSerializer.new(item)
   end
 
